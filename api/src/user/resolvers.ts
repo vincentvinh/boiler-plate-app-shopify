@@ -1,5 +1,6 @@
 import querystring from 'querystring';
 import fetch from 'node-fetch';
+require('dotenv').config()
 
 import { getUser, setUser } from '../database';
 

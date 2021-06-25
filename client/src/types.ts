@@ -78,44 +78,10 @@ export type State = {
     email: string;
     picture?: string;
   };
-  slack: {
-    online: boolean;
-    messages: Message[];
-  };
-  twilio: {
-    token: string;
-  };
-  github: {
-    contributions: Contributions;
-    totalContributions: number;
-  };
   cooking: {
     openId: null | string;
     editId: null | string;
     deleteId: null | string;
     recipes: Recipe[];
-  };
-  restaurants: {
-    items: Restaurant[];
-  };
-  chess: {
-    fen: string;
-    pieces: Piece[];
-    turn: 'w' | 'b';
-    castling: string;
-    rotated: boolean;
-    squares: Square[];
-    enPassant: string;
-    latestMove: string;
-    gameNumber: number;
-    checkers: string[];
-    noMaterial: boolean;
-    legalMoves: string[];
-    halfMoveClock: number;
-    fullMoveNumber: number;
-    dragging: null | Piece;
-    requestPromotion: boolean;
-    availableSquares: string[];
-    userColor: 'w' | 'b' | 'none' | 'both';
   };
 };

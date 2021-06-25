@@ -6,19 +6,12 @@ import { ReactSVG } from 'react-svg';
 import { Redirect, Switch, Route, NavLink, useHistory } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 
-import useSocket from '../hooks/useSocket';
 import useGoogle from '../hooks/useGoogle';
 import useQuery from '../hooks/useQuery';
 import { useDispatch, useSelector, actions } from '../store';
 
 import Dashboard from './Dashboard';
-import Restaurants from './Restaurants';
-import Messenger from './Messenger';
 import Cooking from './Cooking';
-import Meeting from './Meeting';
-import Career from './Career';
-import Chess from './Chess';
-import Learn from './Learn';
 
 const App: FC = () => {
   const { query } = useQuery();
@@ -27,11 +20,11 @@ const App: FC = () => {
   const { signin, authenticate, signout } = useGoogle();
   const { user, error } = useSelector((state) => state);
 
-  // Create a WebSocket for the Slack API to stay connected when navigating the website
-  const { loading, send } = useSocket();
-
   // Sign in the user either based on cookie or query.code provided by the redirect from Google Signin
   useEffect(() => {
+    console.log(query.code);
+    console.log('authenticate effect');
+
     authenticate(query.code || '', { silent: !query.code });
   }, [authenticate]); // eslint-disable-line
 
@@ -59,26 +52,8 @@ const App: FC = () => {
           Luuk.gg
         </NavLink>
 
-        <NavLink to="/learn">
-          <i className="fas fa-graduation-cap" /> Learn
-        </NavLink>
-        <NavLink exact to="/chess">
-          <i className="fas fa-chess-king" /> Chess
-        </NavLink>
         <NavLink to="/cooking">
           <i className="fas fa-utensils" /> Cooking
-        </NavLink>
-        {/* <NavLink to="/restaurants">
-          <i className="fas fa-pizza-slice" /> Restaurants
-        </NavLink> */}
-        <NavLink to="/career">
-          <i className="fas fa-code" /> Career
-        </NavLink>
-        <NavLink to="/messenger">
-          <i className="fab fa-slack" /> Messenger
-        </NavLink>
-        <NavLink to="/meeting">
-          <i className="fas fa-video" /> Meeting
         </NavLink>
         {user ? (
           <div className="user-account">
@@ -102,26 +77,8 @@ const App: FC = () => {
       </header>
       <main>
         <Switch>
-          <Route exact path="/chess">
-            <Chess />
-          </Route>
           <Route path="/cooking">
             <Cooking />
-          </Route>
-          <Route path="/restaurants">
-            <Restaurants />
-          </Route>
-          <Route path={['/learn/:index/:chapter', '/learn']}>
-            <Learn />
-          </Route>
-          <Route path="/career">
-            <Career />
-          </Route>
-          <Route path="/messenger">
-            <Messenger loading={loading} send={send} />
-          </Route>
-          <Route path="/meeting">
-            <Meeting />
           </Route>
           <Route exact path="/">
             <Dashboard />

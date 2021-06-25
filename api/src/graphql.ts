@@ -1,12 +1,10 @@
 import { graphql, GraphQLSchema, GraphQLObjectType } from 'graphql';
 import { IncomingMessage, ServerResponse } from 'http';
 import Cookies from 'cookies';
+require('dotenv').config()
 
 import { recipeQuery, recipeMutations } from './recipe';
 import { userQuery, userMutations } from './user';
-// import { restaurantQuery } from './restaurant';
-import { githubQuery } from './github';
-import { roomQuery } from './room';
 
 // Secret string that allows the API to securely sign cookies
 // Signing a cookie forbids users from manually tampering with it
@@ -17,8 +15,6 @@ const schema = new GraphQLSchema({
     name: 'Query',
     fields: {
       user: userQuery,
-      room: roomQuery,
-      github: githubQuery,
       recipe: recipeQuery
       // restaurant: restaurantQuery
     }

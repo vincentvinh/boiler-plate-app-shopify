@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import useQuery from '../hooks/useQuery';
 import { defaultRecipes } from '../constants';
-import { useSelector, useDispatch, actions } from '../store';
+import { useDispatch, actions } from '../store';
 
 import useGraphQL from './useGraphQL';
 
@@ -10,7 +10,6 @@ const useGoogle = () => {
   const dispatch = useDispatch();
   const { setQuery } = useQuery();
   const { request } = useGraphQL();
-  const slack = useSelector((state) => state.slack);
 
   const signin = useCallback(() => {
     const query = new URLSearchParams({
@@ -45,11 +44,12 @@ const useGoogle = () => {
         },
         options
       );
-
+      console.log('authenticate client', response);
       if (error) return { error };
 
       const user = response.data.user.signIn;
 
+      console.log(user);
       // Store the user data
       dispatch(
         actions.set({
@@ -78,10 +78,6 @@ const useGoogle = () => {
     dispatch(
       actions.set({
         user: null,
-        slack: {
-          ...slack,
-          messages: []
-        },
         cooking: {
           editId: null,
           deleteId: null,
@@ -94,7 +90,7 @@ const useGoogle = () => {
     setQuery({ show: '' });
 
     return { response };
-  }, [slack, request, setQuery, dispatch]);
+  }, [request, setQuery, dispatch]);
 
   return {
     signin,

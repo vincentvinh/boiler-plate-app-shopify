@@ -1,7 +1,7 @@
 import { QuerySnapshot } from '@google-cloud/firestore';
 import { credential, initializeApp, ServiceAccount } from 'firebase-admin';
 
-import service from '../google-service.json';
+import service from '../service/google-service.json';
 
 import { User, Github, Recipe } from './types';
 

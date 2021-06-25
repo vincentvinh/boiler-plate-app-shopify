@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 
 import { useDispatch, actions } from '../store';
 
+require('dotenv').config()
 const apiURL = process.env.REACT_APP_API_URL;
 
 const useGraphQL = () => {
@@ -29,6 +30,7 @@ const useGraphQL = () => {
         });
 
         const response = await res.json();
+        console.log(response);
 
         setLoading(false);
 

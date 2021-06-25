@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
-import WebSocket from 'ws';
 import dotenv from 'dotenv';
 import http, { Server } from 'http';
 
@@ -10,7 +9,7 @@ dotenv.config({
   path: path.resolve(process.cwd(), `.env.${process.env.NODE_ENV || 'development'}`)
 });
 
-import { httpHandler, wsHandler } from './root';
+import { httpHandler } from './root';
 
 let server: Server | null = null;
 
@@ -45,8 +44,3 @@ if (process.env.HTTPS_PORT) {
 
   console.log(`API: http://${process.env.API_DOMAIN}:${process.env.PORT}`);
 }
-
-// // Enable WebSockets on this server
-const wss = new WebSocket.Server({ server });
-
-wss.on('connection', wsHandler);
