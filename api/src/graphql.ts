@@ -16,7 +16,6 @@ const schema = new GraphQLSchema({
     fields: {
       user: userQuery,
       recipe: recipeQuery
-      // restaurant: restaurantQuery
     }
   }),
   mutation: new GraphQLObjectType({

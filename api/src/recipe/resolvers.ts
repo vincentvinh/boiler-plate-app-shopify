@@ -33,7 +33,7 @@ export const resolveGetAll = (_, fields, { cookies }) => {
 
 export const resolveUploadImage = (_, fields, { cookies }) => {
   const email = cookies.get('signed-in-user', { signed: true, secure: true });
-
+  console.log('uploadImages');
   if (!email) throw 'You are not signed in';
 
   // Get the extension of the image about to be uploaded
@@ -63,7 +63,7 @@ export const resolveUploadImage = (_, fields, { cookies }) => {
   // Send the URL and meta-data for uploading to the client
   // Also send the link the image can be loaded from after uploading
   return {
-    link: `https://s3.eu-central-1.amazonaws.com/${process.env.AWS_BUCKET}/${key}`,
+    link: `https://nfqasiapacific.s3.ap-southeast-1.amazonaws.com/${key}`,
     upload
   };
 };

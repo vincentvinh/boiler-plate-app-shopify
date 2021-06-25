@@ -21,7 +21,6 @@ export const httpHandler: RequestListener = async (request, response) => {
     response.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
   }
 
-  console.log('response');
   // Pre-flight requests do not need to be processed any further, they only need the CORS headers
   if (request.method === 'OPTIONS') {
 

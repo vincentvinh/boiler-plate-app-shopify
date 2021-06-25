@@ -44,12 +44,10 @@ const useGoogle = () => {
         },
         options
       );
-      console.log('authenticate client', response);
       if (error) return { error };
 
       const user = response.data.user.signIn;
 
-      console.log(user);
       // Store the user data
       dispatch(
         actions.set({

@@ -22,9 +22,6 @@ const App: FC = () => {
 
   // Sign in the user either based on cookie or query.code provided by the redirect from Google Signin
   useEffect(() => {
-    console.log(query.code);
-    console.log('authenticate effect');
-
     authenticate(query.code || '', { silent: !query.code });
   }, [authenticate]); // eslint-disable-line
 

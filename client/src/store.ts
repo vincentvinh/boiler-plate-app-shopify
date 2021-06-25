@@ -62,7 +62,7 @@ export const { actions, reducer } = createSlice({
 ## Instructions
 1. Put in hard work
 2. Serve while warm`,
-        created: new Date().toJSON()
+        created: '2021-03-25T08:10:31.377Z'
       });
     }
   }

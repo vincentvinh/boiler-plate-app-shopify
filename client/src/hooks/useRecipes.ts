@@ -108,6 +108,8 @@ const useRecipes = () => {
         recipes: [...response.data.recipe.getAll, ...defaultRecipes]
       })
     );
+    console.log('loadRecipe');
+
 
     return { error, response };
   }, [request, dispatch]);

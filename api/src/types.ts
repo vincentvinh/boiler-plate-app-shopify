@@ -12,72 +12,21 @@ export type User = {
   created: Date;
 };
 
-export type Github = {
-  contributions: { [key: string]: number };
-  totalContributions: number;
-};
-
 export type Recipe = {
   id: string;
   cid: string;
-  name: string;
-  duration: string;
+  name: string | null;
+  duration: string | null;
   creator: string;
   difficulty: number;
   image: string;
   text: string;
-  created: string;
-};
-
-// Slack module
-export type WebsocketMessage =
-  | {
-      sender: string;
-      date: string;
-      text: string;
-    }
-  | { online: boolean };
-
-export type SlackMessage = {
-  channel: string;
-  text: string;
-  mrkdwn: boolean;
-  thread_ts?: string;
-};
-
-export type SlackEvent = {
-  text: string;
-  ts: string;
-  thread_ts?: string;
-  subtype?: string;
-};
-
-// Github module
-export type Contributions = {
-  [date: string]: number;
-};
-
-export type GithubContributionsBody = {
-  data: {
-    user: {
-      contributionsCollection: {
-        contributionCalendar: {
-          totalContributions: number;
-          weeks: {
-            contributionDays: {
-              contributionCount: number;
-              date: string;
-            }[];
-          }[];
-        };
-      };
-    };
-  };
+  created: Date;
 };
 
 export const GraphQLDate = new GraphQLScalarType({
   name: 'Date',
-  serialize: (value: Date) => (value ? value.toJSON() : null),
+  serialize: (value: Date) => new Date(value),
   parseValue: (value: string) => parseJSON(value),
   parseLiteral: (ast) => {
     if (ast.kind !== Kind.STRING) return null;

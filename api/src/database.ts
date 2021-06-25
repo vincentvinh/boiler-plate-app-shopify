@@ -3,7 +3,7 @@ import { credential, initializeApp, ServiceAccount } from 'firebase-admin';
 
 import service from '../service/google-service.json';
 
-import { User, Github, Recipe } from './types';
+import { User, Recipe } from './types';
 
 export const firestore = initializeApp({
   credential: credential.cert(service as ServiceAccount)
@@ -29,26 +29,6 @@ export const setUser = async (user: User): Promise<User> => {
   return update as User;
 };
 
-export const getGithub = async (): Promise<Github | null> => {
-  const document = firestore.doc(`github/cache`);
-  const snapshot = await document.get();
-  const github = snapshot.data() as Github | undefined;
-
-  return github || null;
-};
-
-export const setGithub = async (github: Github): Promise<Github> => {
-  const document = firestore.doc(`github/cache`);
-
-  await document.set(github);
-
-  const snapshot = await document.get();
-
-  const update = snapshot.data();
-
-  return update as Github;
-};
-
 export const setRecipe = async (recipe: Recipe): Promise<Recipe | null> => {
   const document = firestore.doc(`recipes/${recipe.id}`);
 
@@ -64,6 +44,7 @@ export const setRecipe = async (recipe: Recipe): Promise<Recipe | null> => {
 
   const update = snapshot.data();
 
+  console.log('setecipes', recipe);
   return update as Recipe;
 };
 
@@ -95,9 +76,10 @@ export const findRecipes = async (filter: { [key: string]: string | null }): Pro
 
     results.push({
       ...session,
-      created: session.created.toDate()
     } as Recipe);
   });
+  console.log('findrecipes', results);
+  
 
   return results;
 };

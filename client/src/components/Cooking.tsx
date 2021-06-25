@@ -47,6 +47,7 @@ const Cooking: FC = () => {
   const uploadFile = useCallback(
     (file: File, cid: string) => {
       upload(file.name).then(async ({ error, response }) => {
+
         if (error || !response) return;
 
         // Create a form to POST to AWS
@@ -66,7 +67,6 @@ const Cooking: FC = () => {
           mode: 'no-cors',
           body: form
         });
-
         // This enables the useEffect hook that saves the recipes
         // The hook will only trigger after the updateRecipes action has updated the store
         saveOnChange.current = true;
