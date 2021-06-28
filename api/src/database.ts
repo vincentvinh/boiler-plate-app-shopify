@@ -33,11 +33,11 @@ export const setUser = async (user: User): Promise<User> => {
 export const setRecipe = async (recipe: Recipe): Promise<Recipe | null> => {
   const document = firestore.doc(`recipes/${recipe.cid}`);
 
-  const findSnapshot = await document.get();
+  const firestoreDatabase = await document.get();
 
-  const found = findSnapshot.data();
+  const recipeFirestore = firestoreDatabase.data();
 
-  if (found && found.creator !== recipe.creator) return null;
+  if (recipeFirestore && recipeFirestore.creator !== recipe.creator) return null;
 
   await document.set(recipe);
 
@@ -57,7 +57,7 @@ export const deleteRecipe = async (recipe: Recipe): Promise<null> => {
 
   if (!found || found.creator !== recipe.creator) return null;
 
-  await document.delete();
+  await document.set(recipe);
 
   return null;
 };
