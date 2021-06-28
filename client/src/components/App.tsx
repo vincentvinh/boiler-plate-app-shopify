@@ -46,7 +46,7 @@ const App: FC = () => {
     <div className="App">
       <header>
         <NavLink to="/" className="logo">
-          Luuk.gg
+          NFQ Shopify App
         </NavLink>
 
         <NavLink to="/cooking">

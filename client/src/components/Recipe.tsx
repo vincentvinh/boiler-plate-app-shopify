@@ -30,8 +30,7 @@ const Recipe: FC<{ recipe: RecipeType; uploadFile: (file: File, cid: string) => 
             </>
           ) : (
             <>
-              <img src="https://s3.eu-central-1.amazonaws.com/luuk.gg/luuk.jpg" alt="" /> Luuk van
-              Egeraat
+              <img src="https://nfqasiapacific.s3.ap-southeast-1.amazonaws.com/vincent.christophe%40nfq.asia/icon.png" alt="" />NFQ
             </>
           )}
           <small>{recipe.created && format(parseJSON(recipe.created), 'dd-MM-yyyy')}</small>
