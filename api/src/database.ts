@@ -1,4 +1,5 @@
 import { QuerySnapshot } from '@google-cloud/firestore';
+import { DocDB } from 'aws-sdk';
 import { credential, initializeApp, ServiceAccount } from 'firebase-admin';
 
 import service from '../service/google-service.json';
@@ -30,7 +31,7 @@ export const setUser = async (user: User): Promise<User> => {
 };
 
 export const setRecipe = async (recipe: Recipe): Promise<Recipe | null> => {
-  const document = firestore.doc(`recipes/${recipe.id}`);
+  const document = firestore.doc(`recipes/${recipe.cid}`);
 
   const findSnapshot = await document.get();
 
@@ -44,12 +45,11 @@ export const setRecipe = async (recipe: Recipe): Promise<Recipe | null> => {
 
   const update = snapshot.data();
 
-  console.log('setecipes', recipe);
   return update as Recipe;
 };
 
 export const deleteRecipe = async (recipe: Recipe): Promise<null> => {
-  const document = firestore.doc(`recipes/${recipe.id}`);
+  const document = firestore.doc(`recipes/${recipe.cid}`);
 
   const snapshot = await document.get();
 
@@ -74,12 +74,13 @@ export const findRecipes = async (filter: { [key: string]: string | null }): Pro
   snapshot.forEach((doc) => {
     const session = doc.data();
 
-    results.push({
-      ...session,
-    } as Recipe);
+    if(!session.deleted) {
+      results.push({
+        ...session,
+        created: session.created
+      } as Recipe);
+    }
   });
-  console.log('findrecipes', results);
-  
 
   return results;
 };

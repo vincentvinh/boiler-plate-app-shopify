@@ -47,29 +47,6 @@ export type Category = {
   name: string;
 };
 
-export type Restaurant = {
-  id: string;
-  name: string;
-  description: string;
-  url: string;
-  categories: { [id: string]: Category };
-  products: { [id: string]: Product };
-};
-
-// Chess page
-export type Piece = {
-  name: string;
-  row: string;
-  column: string;
-  color: string;
-  taken?: boolean;
-};
-
-export type Square = null | {
-  piece: Piece;
-  index: number;
-};
-
 // Store state
 export type State = {
   error: string;

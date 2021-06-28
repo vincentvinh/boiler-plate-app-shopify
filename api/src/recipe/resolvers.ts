@@ -33,7 +33,7 @@ export const resolveGetAll = (_, fields, { cookies }) => {
 
 export const resolveUploadImage = (_, fields, { cookies }) => {
   const email = cookies.get('signed-in-user', { signed: true, secure: true });
-  console.log('uploadImages');
+
   if (!email) throw 'You are not signed in';
 
   // Get the extension of the image about to be uploaded

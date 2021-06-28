@@ -30,7 +30,6 @@ const useGraphQL = () => {
         });
 
         const response = await res.json();
-        console.log(response);
 
         setLoading(false);
 

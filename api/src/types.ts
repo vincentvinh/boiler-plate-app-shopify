@@ -21,6 +21,7 @@ export type Recipe = {
   difficulty: number;
   image: string;
   text: string;
+  deleted?: boolean;
   created: Date;
 };
 
