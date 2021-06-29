@@ -1,4 +1,4 @@
-# Luuk.gg
+# NFQ Shopify App
 
 This is an example of how to build a complex web application.
 
