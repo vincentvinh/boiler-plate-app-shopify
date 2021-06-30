@@ -2,7 +2,7 @@ import { QuerySnapshot } from '@google-cloud/firestore';
 import { DocDB } from 'aws-sdk';
 import { credential, initializeApp, ServiceAccount } from 'firebase-admin';
 
-const service = require("./service/boiler-plate-app.json");
+import service from "./service/boiler-plate-app.json";
 
 import { User, Recipe } from './types/types';
 

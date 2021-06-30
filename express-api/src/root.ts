@@ -1,11 +1,13 @@
 import { RequestListener } from 'http';
-
+import express from 'express';
+var shopify = require('./routes/shopify');
+var index = require('./routes/index');
+const app = express();
 import graphql from './graphql';
 
 // Handle all HTTP requests for both client and API
 export const httpHandler: RequestListener = async (request, response) => {
   // If the request is not made to one of the two endpoints, handle it like a static request for a client file
-
   // All API responses are always CORS-enabled with JSON content type
   response.setHeader('Content-Type', 'application/json');
 
@@ -46,6 +48,7 @@ export const httpHandler: RequestListener = async (request, response) => {
 
     // Web client requests
     if (request.url === '/graphql') return graphql(request, response, body);
+    
 
     response.writeHead(404);
 

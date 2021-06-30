@@ -5,13 +5,18 @@
   "license": "MIT",
   "dependencies": {
     "@shopify/shopify-api": "^1.4.1",
+    "@types/node-fetch": "^2.5.10",
     "aws-sdk": "^2.936.0",
     "cookies": "^0.8.0",
     "date-fns": "^2.22.1",
     "express": "^4.17.1",
     "firebase-admin": "^9.10.0",
     "graphql": "^15.5.1",
-    "nanoid": "^3.1.23"
+    "mime": "^2.5.2",
+    "nanoid": "^3.1.23",
+    "node-fetch": "^2.6.1",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.0.0"
   },
   "devDependencies": {
     "@types/cookies": "^0.7.6",
@@ -23,5 +28,11 @@
     "build": "npx tsc",
     "prestart": "yarn run build",
     "start": "node dist/index.js"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100,
+    "trailingComma": "none",
+    "endOfLine": "auto"
   }
 }

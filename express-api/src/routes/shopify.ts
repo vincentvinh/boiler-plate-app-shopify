@@ -37,7 +37,9 @@ router.get('/', async (req, res) => {
 
 // the rest of the example code goes here
 router.get('/login', async (req, res) => {
+  console.log('LOGIN BEFORE');
   let authRoute = await Shopify.Auth.beginAuth(req, res, SHOP, '/shopify/auth/callback', true);
+  console.log('LOGIN');
 
   return res.redirect(authRoute);
 })
