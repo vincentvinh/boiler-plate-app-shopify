@@ -2,7 +2,6 @@ import express from 'express';
 require('dotenv').config();
 var shopify = require('./routes/shopify');
 var index = require('./routes/index');
-
 const app = express();
 
 app.use('/', index);
