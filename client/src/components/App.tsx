@@ -12,6 +12,7 @@ import { useDispatch, useSelector, actions } from '../store';
 
 import Dashboard from './Dashboard';
 import Cooking from './Cooking';
+import Shopify from './Shopify';
 
 const App: FC = () => {
   const { query } = useQuery();
@@ -48,7 +49,9 @@ const App: FC = () => {
         <NavLink to="/" className="logo">
           NFQ Shopify App
         </NavLink>
-
+        <NavLink to="/shopify">
+          <i className="fas fa-utensils" /> Shopify
+        </NavLink>
         <NavLink to="/cooking">
           <i className="fas fa-utensils" /> Cooking
         </NavLink>
@@ -74,6 +77,9 @@ const App: FC = () => {
       </header>
       <main>
         <Switch>
+          <Route path="/shopify">
+            <Shopify />
+          </Route>
           <Route path="/cooking">
             <Cooking />
           </Route>
