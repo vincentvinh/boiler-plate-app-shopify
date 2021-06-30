@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "boiler-plate-app-cafda",
+  "private_key_id": "c6ae481a24b6d882ab8b9fdc473d62505692ae4a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3jmrsjeC0lFC5\ncSjiqSpARKzV6JpyVC9gtq/3UctImPCncbsYy7wmI4qbtHU7rRK0umy7n6JLQk/v\nhTkiXDjPfCxjkW2hhOEL/gozoL8sfgLOLwlq6wSxV0tBMxz3X2mNX/FoYO0WMZBt\nGEB0WwGv7OK2wRQp5tog7nMCkd7PxiyrkfxXMlsuB6e5EjIMVqnpFH1MzbfHrxXj\n7gT5PO/4r844VyPL5+QmGnbfVh7lNZIZCT099x7iZXMUsF4DuBSvbYko2e3uzF/2\n4hmxeYdtcZotDJZXsBeyQvU0h+rmQqNZC7fesgsp0Fe9/z1rt+h3edFILNwqryY9\nRFeE6g8zAgMBAAECggEALSbaRHAt+x2UsdkVHpRQMVjzTvcVrtPoh5jItkSnhach\nY38Fb/cFxDfv65c7Uz+in1RQVOLSsEKSmS+jO0GGM/uui5uFZTrjhOirp8F95Trm\nA8PsRCGlmN4JQ/OHx43vz/fu0ScuiswMY9mYWUbdpmHV7vCVvizsMTeWkOZC8ca5\nOCzo2F6ADhPnMSkglfAnCFokJkDYJdwAuRLWujiqERzfXcgVjvdjtBAH0/yC0d1K\nOe0+QCB7DQuSGBPv4YqjuXL8toRsaB53Jr18EOuQl50XQ2wJRu2XT/oizsww/Ibz\npCTkl3rEucy71vPaZo8tgZDlB/+JxPKGrCVb7IauYQKBgQD3Y2WCb4WQkYNkqOnY\ngsCA321/mP94JuRyWPsIQWk/dtIYyRsuhPx3+OLMgy73Wtr8c6KxTBl4Azb7OajH\nLVLJFyeVWyijHle0xKuXfY4oWynTxdm9TaQhZn+PhwkyxfMQ3g4N3OU8SSEcLu+i\nP293AS1OiPY5pOGXH60sMlrEIwKBgQC98i6WgBGnZX5Rj3pHOhR8Raz0My2yQQR2\n1vEFb2iG/CBdbv0lziNLF3NHxvjBpiRWXHj6/LM/6fxheHJZuVfTLRKUCiUrTMgU\n47ls9wac9+y8yaInpTYekwJhXAPkPrza5CvAdI7z3mwZHst92iSV2NfdApEjXVIE\n9zFAOOdxsQKBgAZvno9zKU1mi72Nq2/HjwyLQ4UDTPoqQN08tWM0mHFfPP4KFVvz\nd8IDRps9enZS9cmFlKD6Mtttcfu9N0ffRP0YTh5Tnc4Ilw2L5E7vpEgmfwMUbaLA\nJ1n7Gax5PeMFRVqV/FWd/pS/7k2WZwOYlOTKsgwOAiHjyT6uQ0oYEUZzAoGBALXl\nvoeRjVZo81bXt5mOHSAE+WPBvvj9GnFT1OwHjGn3+GaBaxtRFKtMgbEy8fVATXwG\ngjSY2m9Se8Y7ugYCYABzIV9zd7THirO2gFPBHCwloCgKT6b3p6QP1C+4FmH1UpWr\n+9oJxPv0/D/yJZ0X0gFN7ypO0v6y12C5+AgwdjOBAoGAK1dKr7+gwuOHa9TBw2mC\n5JWfK7bVGZNmarvJoFVe+V8/1+9DyPvFNu+3KV9+PHyxoPXFPFvmfOWPKFLJgy49\nN8oFCmiBtVraZ5l9aS6ZDqLZADc8MNSJfN2qXLj9f9LLhg3BKrNTO5pauucI7+x1\nApmvLhTqvK7GSz/iI/iDu2w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-5o07u@boiler-plate-app-cafda.iam.gserviceaccount.com",
+  "client_id": "109429391468764781037",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-5o07u%40boiler-plate-app-cafda.iam.gserviceaccount.com"
+}
