@@ -22,7 +22,7 @@ const schema = new GraphQLSchema({
     name: 'Mutation',
     fields: {
       user: userMutations,
-      recipe: recipeMutations
+      recipe: recipeMutations,
     }
   })
 });

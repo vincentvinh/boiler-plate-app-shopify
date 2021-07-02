@@ -14,6 +14,9 @@ const initialState: State = {
     editId: null,
     deleteId: null,
     recipes: defaultRecipes
+  },
+  shopify: {
+    products: []
   }
 };
 
@@ -27,6 +30,14 @@ export const { actions, reducer } = createSlice({
       state.cooking = {
         ...state.cooking,
         ...action.payload
+      };
+    },
+    setShopifyProducts: (state, action) => {
+      console.log(action.payload.shopify, state.shopify);
+
+      state.shopify.products = {
+        ...state.shopify.products,
+        ...action.payload.shopify
       };
     },
     updateRecipe: (state, action) => {

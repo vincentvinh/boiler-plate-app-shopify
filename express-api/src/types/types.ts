@@ -25,6 +25,11 @@ export type Recipe = {
   created: Date;
 };
 
+export type Shopify = {
+  access_token: string;
+  scope: string;
+};
+
 export const GraphQLDate = new GraphQLScalarType({
   name: 'Date',
   serialize: (value: Date) => new Date(value),

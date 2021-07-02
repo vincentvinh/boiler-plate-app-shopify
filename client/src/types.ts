@@ -37,9 +37,8 @@ export type AWSUploadResponse = {
 // Restaurant page
 export type Product = {
   id: string;
-  name: string;
-  description: string;
-  price: number;
+  title: string;
+  descriptionHtml: string;
 };
 
 export type Category = {
@@ -60,5 +59,8 @@ export type State = {
     editId: null | string;
     deleteId: null | string;
     recipes: Recipe[];
+  };
+  shopify: {
+    products: Product[];
   };
 };

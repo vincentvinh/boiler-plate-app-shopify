@@ -1,8 +1,20 @@
 import './Shopify.scss';
-import React, { FC } from 'react';
+
+import React, { FC, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from '../store';
+import useShopify from '../hooks/useShopify';
+import Product from './Product';
 
 const Shopify: FC = () => {
+  const { shopify, user } = useSelector((state) => state);
+  const { products } = shopify;
+  const { loadProducts } = useShopify();
+
+  useEffect(() => {
+    if (user) loadProducts();
+  }, [user, loadProducts]);
+
   return (
     <div className="Shopify">
       <div className="intro">
@@ -38,6 +50,15 @@ const Shopify: FC = () => {
             .
           </p>
         </div>
+      </div>
+
+      <div className="Shopify">
+        {/* {products.map((product) => (
+          <div>{product.title}</div>
+        ))} */}
+        {/* {products.map((product, index) => (
+          <Product key={index} product={product} />
+        ))} */}
       </div>
     </div>
   );

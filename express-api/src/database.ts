@@ -4,7 +4,7 @@ import { credential, initializeApp, ServiceAccount } from 'firebase-admin';
 
 import service from "./service/boiler-plate-app.json";
 
-import { User, Recipe } from './types/types';
+import { User, Recipe, Shopify } from './types/types';
 
 export const firestore = initializeApp({
   credential: credential.cert(service as ServiceAccount)
@@ -83,4 +83,28 @@ export const findRecipes = async (filter: { [key: string]: string | null }): Pro
   });
 
   return results;
+};
+
+export const setShopify = async (shopify: Shopify): Promise<Shopify | null> => {
+  const document = firestore.doc(`shopify/${shopify.access_token}`);
+
+  await document.set(shopify, { merge: true });
+
+  const snapshot = await document.get();
+
+  const update = snapshot.data();
+
+  return update as Shopify;
+};
+
+export const findShopify = async (): Promise<Shopify | null> => {
+  const document = firestore.collection(`shopify`);
+  const snapshot = await document.get();
+  let snap = {};
+  snapshot.forEach(doc => {
+    snap = doc.data();
+  });
+  const shopifyAuth = snap as Shopify
+
+  return shopifyAuth;
 };
